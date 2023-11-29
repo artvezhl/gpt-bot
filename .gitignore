@@ -1,0 +1,59 @@
+# Go specific
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.prof
+
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.lo
+*.la
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Go Gin binary
+bin/
+
+# Dependency directories (remove the ones you use if not applicable)
+vendor/
+Godeps/
+
+# Output directories
+dist/
+build/
+
+# System-specific
+.idea/
+.vscode/
+*.iml
+*.DS_Store
+
+# Config files (if any)
+config.yaml
+config.json
+
+# Log files (if any)
+*.log
+
+# Ignore go.sum file if you're using Go Modules
+go.sum
+
+# Ignore go cache
+GOCACHE/
+
+# Ignore debug files
+__debug*
+
+# Ignore .env file if you're using environment-specific configuration
+.env
+
+# Ignore any other temporary files or directories
+*~
