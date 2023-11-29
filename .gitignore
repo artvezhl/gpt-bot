@@ -57,3 +57,5 @@ __debug*
 
 # Ignore any other temporary files or directories
 *~
+
+tmp
