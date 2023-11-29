@@ -3,7 +3,6 @@ package main
 import (
     "os"
     "log"
-    "fmt"
     "github.com/joho/godotenv"
 
     tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
@@ -17,14 +16,9 @@ func init() {
 }
 
 func main() {
-    telegramApiToken, exists := os.LookupEnv("TELEGRAM_APITOKEN")
-    if exists {
-        fmt.Println("TELEGRAM_APITOKEN", os.Getenv("TELEGRAM_APITOKEN"))
-    }
+    telegramApiToken := os.LookupEnv("TELEGRAM_APITOKEN")
     bot, err := tgbotapi.NewBotAPI(telegramApiToken)
-    // bot, err := tgbotapi.NewBotAPI("6845572710:AAF25s66WMqFSX5T4m-Jn5Hw2Q5QhO9Y4GI")
     if err != nil {
-        fmt.Println("ERROR", err)
         panic(err)
     }
 
