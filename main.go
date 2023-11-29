@@ -16,7 +16,7 @@ func init() {
 }
 
 func main() {
-    telegramApiToken := os.LookupEnv("TELEGRAM_APITOKEN")
+    telegramApiToken, _ := os.LookupEnv("TELEGRAM_APITOKEN")
     bot, err := tgbotapi.NewBotAPI(telegramApiToken)
     if err != nil {
         panic(err)
