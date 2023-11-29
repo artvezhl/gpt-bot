@@ -2,10 +2,10 @@
 steps:
   # build the container image
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/own-projects-406620/gpt-chat", "."]
+    args: ["build", "-t", "gcr.io/$PROJECT_ID/gpt-chat", "."]
     # push the container image
   - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/own-projects-406620/gpt-chat"]
+    args: ["push", "gcr.io/$PROJECT_ID/gpt-chat"]
     # deploy to Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"
     args:
@@ -14,12 +14,14 @@ steps:
         "deploy",
         "gpt-chat",
         "--image",
-        "gcr.io/own-projects-406620/gpt-chat",
+        "gcr.io/$PROJECT_ID/gpt-chat",
         "--region",
         "europe-central2",
         "--platform",
         "managed",
         "--allow-unauthenticated",
+        "--port",
+        "8888",
         "--min-instances",
         "0",
         "--max-instances",
