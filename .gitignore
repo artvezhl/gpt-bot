@@ -44,7 +44,7 @@ config.json
 *.log
 
 # Ignore go.sum file if you're using Go Modules
-go.sum
+# go.sum
 
 # Ignore go cache
 GOCACHE/
