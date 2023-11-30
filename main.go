@@ -4,8 +4,6 @@ import (
     "os"
     "log"
     "github.com/joho/godotenv"
-    "net/http"
-    "fmt"
 
     tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
@@ -66,10 +64,4 @@ func main() {
             panic(err)
         }
     }
-
-    port, _ := os.LookupEnv("PORT")
-    if port == "" {
-        port = "8080"
-    }
-    log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
 }
