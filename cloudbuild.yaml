@@ -1,8 +1,6 @@
 # File: cloudbuild.yaml
 options:
   logging: CLOUD_LOGGING_ONLY
-health_check:
-  enable_health_check: False
 steps:
   # build the container image
   - name: "gcr.io/cloud-builders/docker"
@@ -12,6 +10,12 @@ steps:
     args: ["push", "gcr.io/$PROJECT_ID/gpt-chat"]
     # deploy to Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"
+    health_check:
+      enable_health_check: False
+      check_interval_sec: 60
+      timeout_sec: 4
+      unhealthy_threshold: 2
+      healthy_threshold: 2
     args:
       [
         "run",
